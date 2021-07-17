@@ -3,6 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles"/>
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="Player">
@@ -14,20 +15,35 @@
     <sounds name="Pishtaco">
       <sound>sound\sn_pishtaco_explotion</sound>
       <sound>sound\sn_pishtaco_dead</sound>
+      <sound>sound\sn_pishtaco_portal</sound>
     </sounds>
     <sounds name="Jarjacha">
       <sound>sound\sn_jarjacha_death</sound>
       <sound>sound\sn_jarjacha_shot</sound>
+      <sound>sound\sn_jarjacha_portal</sound>
+    </sounds>
+    <sounds name="Background">
+      <sound>sound\sn_bgDanzaDeNegritos_Ica</sound>
+      <sound>sound\sn_bgPallasDeCorongo</sound>
+      <sound>sound\sn_bgPortada</sound>
+    </sounds>
+    <sound>sound\snOkGUI</sound>
+    <sound>sound\snVictory</sound>
+    <sounds name="Chinchilico">
+      <sound>sound\snDuende_death</sound>
+      <sound>sound\sn_duende_portal</sound>
+    </sounds>
+    <sounds name="Chest">
+      <sound>sound\sn_chest_opening</sound>
+    </sounds>
+    <sounds name="Fires">
+      <sound>sound\sn_bullets_explotion</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\sp_pisht__</sprite>
-    <sprite>sprites\sp_momentaneo</sprite>
-    <sprite>sprites\spPishtaco</sprite>
     <sprites name="Bridge">
       <sprite>sprites\sp_Bridge_V</sprite>
       <sprite>sprites\sp_Bridge_H</sprite>
-      <sprite>sprites\sprite31</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spPlayer_static</sprite>
@@ -62,17 +78,25 @@
       </sprites>
     </sprites>
     <sprites name="GUI">
-      <sprite>sprites\spHeart</sprite>
+      <sprites name="Portada">
+        <sprite>sprites\spGUI_title</sprite>
+        <sprite>sprites\spGUI_salir</sprite>
+        <sprite>sprites\spGUI_jugar</sprite>
+        <sprite>sprites\spGUI_creditos</sprite>
+      </sprites>
     </sprites>
     <sprites name="Chest">
       <sprite>sprites\sp_chest_closed</sprite>
       <sprite>sprites\sp_chest_opened</sprite>
     </sprites>
+    <sprite>sprites\spWall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\tl_tiles_all</background>
     <background>background\tl_ground</background>
     <background>background\background5</background>
+    <background>background\bgPortada</background>
+    <background>background\bgClick</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -81,6 +105,8 @@
     <script>scripts\sc_print_console.gml</script>
     <scripts name="Enemy__Management">
       <script>scripts\sc_enemies_create.gml</script>
+      <script>scripts\sc_enemies_killed.gml</script>
+      <script>scripts\sc_enemies_placement.gml</script>
     </scripts>
     <scripts name="Seed__Management">
       <script>scripts\sc_seed_manager.gml</script>
@@ -105,28 +131,50 @@
       <script>scripts\sc_get_1_number.gml</script>
       <script>scripts\sc_getRandom.gml</script>
     </scripts>
+    <scripts name="Chest__Management">
+      <script>scripts\sc_chest_creationPlacement.gml</script>
+    </scripts>
+    <scripts name="Sound_Management">
+      <script>scripts\sn_sound_change.gml</script>
+      <script>scripts\sn_sound_Portada.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\fnGUI</font>
+    <font>fonts\fnGUI_enemies</font>
+    <font>fonts\fnGUI_song</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obPlayer</object>
     <object>objects\obChest</object>
-    <object>objects\obPlayer_shot</object>
-    <objects name="ob_bridges">
+    <objects name="Bridges">
       <object>objects\obBridge_S</object>
       <object>objects\obBridge_W</object>
       <object>objects\obBridge_E</object>
       <object>objects\obBridge_N</object>
     </objects>
-    <objects name="ob_Enemys">
+    <objects name="Enemys">
       <object>objects\obDuende</object>
       <object>objects\obJarjacha</object>
       <object>objects\obJarjacha_shot</object>
       <object>objects\obPishtaco</object>
     </objects>
+    <objects name="GUI">
+      <objects name="Portada">
+        <object>objects\obPortada_Title</object>
+        <object>objects\obPortada_Salir</object>
+        <object>objects\obPortada_Jugar</object>
+        <object>objects\obPortada_Creditos</object>
+      </objects>
+    </objects>
+    <objects name="Player">
+      <object>objects\obPlayer_shot</object>
+      <object>objects\obPlayer</object>
+      <object>objects\obPlayer_Portada</object>
+    </objects>
+    <object>objects\obWall</object>
+    <object>objects\obGameController</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rmPortada</room>
     <room>rooms\rmPrefab_1_S</room>
     <rooms name="doors_1">
       <room>rooms\rmPrefab_1_N</room>

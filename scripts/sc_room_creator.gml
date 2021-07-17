@@ -11,9 +11,11 @@ global.enemy_acceleration = 0.1;
 var l = global.level;
 sc_print_console("*NIVEL: " + string(l), true, true);
 
+
 // Limpiar el array, esto es mas que nada cuando se cambia de nivel
 arrCleaner [0,0] = -1;
 global.arRooms = arrCleaner;
+
 
 // Crear una lista con las salas
 //// 1 = Noth ; 2 = East ; 3 = South ; 4 = West  ;;; 0 = No-assigned

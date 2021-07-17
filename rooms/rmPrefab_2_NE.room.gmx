@@ -53,6 +53,15 @@
   <instances>
     <instance objName="obBridge_N" x="336" y="144" name="inst_C60CC6A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obBridge_E" x="528" y="336" name="inst_A1F28F1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obGameController" x="0" y="-32" name="inst_2723743E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obWall" x="128" y="128" name="inst_A6090C24" locked="0" code="" scaleX="1" scaleY="13" colour="4294967295" rotation="0"/>
+    <instance objName="obWall" x="512" y="128" name="inst_1E13A2D7" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
+    <instance objName="obWall" x="544" y="288" name="inst_26935B1D" locked="0" code="" scaleX="1" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="obWall" x="512" y="352" name="inst_8E8753F8" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
+    <instance objName="obWall" x="128" y="512" name="inst_20BB1029" locked="0" code="" scaleX="13" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obWall" x="128" y="128" name="inst_14F427F9" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obWall" x="288" y="96" name="inst_EC3F20D7" locked="0" code="" scaleX="3" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obWall" x="352" y="128" name="inst_9F446EEF" locked="0" code="" scaleX="6" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background5" x="160" y="416" w="32" h="32" xo="192" yo="64" id="10000668" name="inst_6BB0BA76" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

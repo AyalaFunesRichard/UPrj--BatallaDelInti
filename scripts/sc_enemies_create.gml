@@ -1,14 +1,21 @@
+// Porbabilidad de cantidad de enemigos por sala
 P_1 = 25; P_2 = 40; P_3 = 23; P_4 = 7; P_5 = 4; P_7 = 1;
 
 // Probabilidad Duente ; Probabilidad Jarjacha ; Probabilidad Pishtaco
 PD = 40; PJ = 30; PP = 30; 
+
+
+// Limpiar el array, esto es mas que nada cuando se cambia de nivel
+arrCleaner [0,0] = -1;
+global.arEnemy = arrCleaner;
+
 
 msg = "CREACION DE ENEMIGOS";
 sc_print_console(msg, true, true);
 
 for (var i = 0; i < array_height_2d(global.arRooms); i += 1){
 
-    numRan = sc_getRandom((i * 17) + global.remainingEnemies);
+    numRan = sc_getRandom((i * 17 + (global.level * 7)) + global.remainingEnemies);
 
     //var list = ds_list_create();
     
@@ -26,14 +33,14 @@ for (var i = 0; i < array_height_2d(global.arRooms); i += 1){
     sc_print_console(msg, true, false);
     for(var j = 0; j < (amount * 4); j += 4){
     
-        var _x = (160 + (round(sc_getRandom((numRan * 13) + (j * (j + 1))) / 10) * 32));
-        var _y = (160 + (round(sc_getRandom((numRan * 7) + ((j + 1) * (j + _x))) / 10) * 32));
+        var _x = (160 + (round(sc_getRandom((numRan * 13) + (j * (j + 1)) + (global.level * 111)) / 10) * 32));
+        var _y = (160 + (round(sc_getRandom((numRan * 7) + ((j + 1) * (j + _x)) + (global.level * 31)) / 10) * 32));
     
         global.arEnemy[i, j] = j;             // id del Enemigo
         global.arEnemy[i, (j + 1)] = _x;      // posicion de aparicion en X
         global.arEnemy[i, (j + 2)] = _y;      // posicion de aparicion en Y
         
-        var ranNum = sc_getRandom((_y + (_y * j)));
+        var ranNum = sc_getRandom((_y + (_y * j)) + (global.level * 3));
     
         if(ranNum < PD){
             global.arEnemy[i, (j + 3)] = "obDuende";      // Tipo de enemigo
@@ -51,5 +58,4 @@ for (var i = 0; i < array_height_2d(global.arRooms); i += 1){
         
         global.remainingEnemies += 1;
     }
-    
 }

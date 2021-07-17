@@ -11,32 +11,6 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>status = "normal";
-
-cd = 0.75;
-cd_counter = 150;
-
-img_speed = image_speed;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>108</id>
         <kind>0</kind>
         <userelative>-1</userelative>
@@ -123,6 +97,123 @@ img_speed = image_speed;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Variables</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>status = "normal";
+
+cd = 0.75;
+cd_counter = 150;
+
+img_speed = image_speed;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Draw - GUI</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+// GUI
+    // Health bar -&gt;
+x1 = view_xport[0] + 16; x2 = view_xport[0] + 216;
+y1 = view_yport[0] + 16; y2 = view_yport[0] + 36;
+
+cl_gui_health_good = make_colour_rgb(37, 165, 95);
+cl_gui_health_half = make_colour_rgb(255, 292, 116);
+cl_gui_health_bad = make_colour_rgb(218, 18, 18);
+cl_gui_health_bg = make_colour_rgb(10, 29, 55);
+
+    // Enemies -&gt;
+xR = view_xport[0] + 16; yR = view_yport[0] + 48; // Restante
+
+xJ = view_xport[0] + 40; yJ = view_yport[0] + 78; // Jarjacha
+xJs = view_xport[0] + 16; yJs = view_yport[0] + 78; // Jarjacha Sprite 
+
+xP = view_xport[0] + 40; yP = view_yport[0] + 106; // Pishtaco
+xPs = view_xport[0] + 16; yPs = view_yport[0] + 106; // Pishtaco Sprite 
+
+xD = view_xport[0] + 40; yD = view_yport[0] + 134; // Duende
+xDs = view_xport[0] + 16; yDs = view_yport[0] + 134; // Duende Sprite 
+
+xSh = 1; ySh = 1; // Shadow 
+wS = 20; hS = 20; // width/height Sprites
+
+cl_gui_enemies_bg = make_colour_rgb(0, 0, 0);
+cl_gui_enemies = make_colour_rgb(255, 255, 255);
+
+draw_set_font(fnGUI_enemies);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -171,14 +262,15 @@ if(status == "shotting"){
 
 }else{
     if(sprite_index != spPlayer_walking_hori &amp;&amp; hspeed != 0){
+    
         sprite_index = spPlayer_walking_hori;
-        
     }else{
         
         if(speed == 0 &amp;&amp; sprite_index != spPlayer_static){
+        
             sprite_index = spPlayer_static;
         }else{
-        
+            
             if(hspeed == 0 &amp;&amp; vspeed &gt; 0 &amp;&amp; sprite_index != spPlayer_walking_down){
                 sprite_index = spPlayer_walking_down;
             
@@ -251,6 +343,38 @@ if(health &gt; 0){
 }else{
     speed = 0;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obWall">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+x = x - hspeed;
+y = y - vspeed;
+
+
+
+
+
+// var inst = instance_nearest((x + hspeed), (y + vspeed), obPlayer);
+// inst.speed = 0;
 </string>
           </argument>
         </arguments>
@@ -723,475 +847,77 @@ if(health &gt; 0){
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Verificar si se crear COFRE</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>idRoom = array_height_2d(global.arRooms) - 1;
-
-if (global.arRooms[idRoom, 0] = global.currentRoom_x){
-    if (global.arRooms[idRoom, 1] = global.currentRoom_y){
-        instance_create(337, 337, obChest);
-    }
-}
-                
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Crear ENEMIGOS</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>for (var i = 0; i &lt; array_height_2d(global.arRooms); i += 1){
-    if (global.currentRoom_x == global.arRooms[i, 0]) {
-        if (global.currentRoom_y == global.arRooms[i, 1]) {
-            
-            for (var j = 0; j &lt; array_length_2d(global.arEnemy, i); j += 4){
-            
-                enemyAsset = asset_get_index(global.arEnemy[i, (j + 3)]);
-                instance_create(global.arEnemy[i,(j + 1)], global.arEnemy[i,(j + 2)], enemyAsset);
-            }
-            
-            break;
-        }
-    }
-    
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Setup: VARIABLES</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>randomize();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>sc_variables_player</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>sc_variables_general</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>sc_variables_enemys</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>Setup other</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>sc_seed_manager</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>sc_room_creator</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>601</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>9</kind>
-            <script>sc_enemies_create</script>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>global.currentRoom_x = 0;
-global.currentRoom_y = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
-        <id>723</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_health</functionname>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>view_xport[0] + 16</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>view_yport[0] + 16</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>view_xport[0] + 116</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>view_yport[0] + 32</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>6</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
+            <kind>1</kind>
+            <string>// DRAW -&gt; vida  ;  restantes:  ;  otros
+draw_healthbar(x1, y1, x2, y2, obPlayer.health, cl_gui_health_bg, cl_gui_health_bad, cl_gui_health_good, 0, true, true);
+
+//
+// DRAW enemies -&gt;
+draw_set_font(fnGUI_enemies);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
+// Pintar BACKGROUND y SPRITES-&gt;
+draw_set_colour(cl_gui_enemies_bg);
+    // Restantes -&gt;
+draw_text((xR + xSh), (yR + ySh), string("Restantes: " + string(global.remainingEnemies)));
+    
+if(global.jarjacha_killed &gt; 0){ // Jarjacha
+    draw_text((xJ + xSh), (yJ + ySh), string("Jarjacha: " + string(global.jarjacha_killed)));
+    draw_sprite_stretched(sp_jarjacha_normal, 1, xJs, yJs, wS, hS);
+}
+if(global.pishtaco_killed &gt; 0){ // Pishtaco
+    draw_text((xP + xSh), (yP + ySh), string("Pishtaco: " + string(global.pishtaco_killed)));
+    draw_sprite_stretched(sp_pishtaco_normal, 1, xPs, yPs, wS, hS);
+}
+if(global.duende_killed &gt; 0){ // Chinchilico
+    draw_text((xD + xSh), (yD + ySh), string("Chinchilico: " + string(global.duende_killed))); 
+    draw_sprite_stretched(sp_duende_normal, 1, xDs, yDs, wS, hS);
+}
+
+// Pintar INFORMACION -&gt;
+draw_set_colour(cl_gui_enemies);
+    // Restantes -&gt;
+draw_text(xR, yR, string("Restantes: " + string(global.remainingEnemies)));
+    // Jarjacha, Pishtaco, Chinchilico -&gt;
+if(global.jarjacha_killed &gt; 0) draw_text(xJ, yJ, string("Jarjacha: " + string(global.jarjacha_killed)));
+if(global.pishtaco_killed &gt; 0) draw_text(xP, yP, string("Pishtaco: " + string(global.pishtaco_killed)));
+if(global.duende_killed &gt; 0) draw_text(xD, yD, string("Chinchilico: " + string(global.duende_killed)));
+
+
+//
+// DRAW song name
+draw_set_font(fnGUI_song);
+draw_set_halign(fa_right);
+draw_set_valign(fa_bottom);
+
+draw_set_colour(cl_gui_enemies_bg);
+draw_text((view_wport[0] - 15), (view_hport[0] - 15), "Sonando: " + global.bgPlaying);
+
+draw_set_colour(cl_gui_enemies);
+draw_text((view_wport[0] - 16), (view_hport[0] - 16), "Sonando: " + global.bgPlaying);
+
+
+
+
+
+</string>
           </argument>
         </arguments>
       </action>

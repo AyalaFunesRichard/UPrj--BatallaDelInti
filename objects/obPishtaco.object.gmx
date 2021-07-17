@@ -25,10 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>status = "spawning";
+            <string>idObjeto = -1;
+
+status = "spawning";
 
 already_hit = false;
 //status = "normal";
+
+
+audio_play_sound(sn_pishtaco_portal, 15, false);
 </string>
           </argument>
         </arguments>
@@ -181,6 +186,37 @@ if(distance_to_object(obPlayer) &lt;= global.pishtaco_range_to_explote){
         <isnot>0</isnot>
       </action>
     </event>
+    <event eventtype="4" ename="obPlayer">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(sprite_index == sp_pishtaco_explotion){
+    if(!already_hit){
+        audio_play_sound(sn_player_fireHitted, 11, false);
+        sc_player(global.pishtaco_damage); 
+        speed = 0;   
+        already_hit = true;   
+    }
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obPlayer_shot">
       <action>
         <libid>1</libid>
@@ -215,6 +251,46 @@ if(distance_to_object(obPlayer) &lt;= global.pishtaco_range_to_explote){
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>sc_enemies_killed</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>idObjeto</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
       </action>
       <action>
         <libid>1</libid>
@@ -257,37 +333,6 @@ if(distance_to_object(obPlayer) &lt;= global.pishtaco_range_to_explote){
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-      </action>
-    </event>
-    <event eventtype="4" ename="obPlayer">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(sprite_index == sp_pishtaco_explotion){
-    if(!already_hit){
-        audio_play_sound(sn_player_fireHitted, 11, false);
-        sc_player(global.pishtaco_damage); 
-        speed = 0;   
-        already_hit = true;   
-    }
-
-}
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
     <event eventtype="7" enumb="7">
@@ -370,6 +415,26 @@ if(distance_to_object(obPlayer) &lt;= global.pishtaco_range_to_explote){
           <argument>
             <kind>0</kind>
             <string>0.2</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>212</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_end_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>sn_pishtaco_portal</sound>
           </argument>
         </arguments>
       </action>
@@ -617,6 +682,46 @@ if(distance_to_object(obPlayer) &lt;= global.pishtaco_range_to_explote){
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>sc_enemies_killed</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>idObjeto</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
       </action>
       <action>
         <libid>1</libid>

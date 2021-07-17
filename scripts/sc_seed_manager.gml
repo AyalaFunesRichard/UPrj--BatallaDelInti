@@ -4,7 +4,7 @@
 global.seed_max_lenght = 15;
 global.seed = "no-set";
 
-global.seed = "606684196530660"; // puro NS
+//global.seed = "606684196530660"; // puro NS
 //global.seed = "598543874674819";
 //global.seed = "123456789012345";
 

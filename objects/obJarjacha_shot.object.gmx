@@ -64,6 +64,32 @@ if(distance &gt; max_distance){
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obPlayer">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_play_sound(sn_player_fireHitted, 11, false);
+sc_player(global.jarjacha_damage);
+instance_destroy();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obPlayer_shot">
       <action>
         <libid>1</libid>
@@ -81,7 +107,7 @@ if(distance &gt; max_distance){
         <arguments>
           <argument>
             <kind>6</kind>
-            <sound>-1</sound>
+            <sound>sn_bullets_explotion</sound>
           </argument>
           <argument>
             <kind>3</kind>
@@ -116,32 +142,6 @@ if(distance &gt; max_distance){
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-      </action>
-    </event>
-    <event eventtype="4" ename="obPlayer">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>audio_play_sound(sn_player_fireHitted, 11, false);
-sc_player(global.jarjacha_damage);
-instance_destroy();
-
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
     <event eventtype="7" enumb="7">

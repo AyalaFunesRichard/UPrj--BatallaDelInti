@@ -25,4 +25,9 @@ global.jarjacha_damage_base = 35;
 
 global.jarjacha_damage = 35;
 
-//global.duende_range_to_attack = ;
+
+// Enemies killed ->
+global.jarjacha_killed = 0;
+global.duende_killed = 0;
+global.pishtaco_killed = 0;
+

@@ -55,7 +55,11 @@ move_towards_point(mouse_x, mouse_y, moveSpeed);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>distance = point_distance(x,y, obPlayer.x, obPlayer.y);
+            <string>if(instance_exists(obPlayer))
+    distance = point_distance(x,y, obPlayer.x, obPlayer.y);
+else
+    distance = point_distance(x,y, obPlayer_Portada.x, obPlayer_Portada.y);
+    
 if(distance &gt; max_distance){
     instance_destroy();
 }
